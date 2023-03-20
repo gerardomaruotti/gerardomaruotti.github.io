@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>My test page</title>
+  </head>
+  <body>
+    <h1 style="color:rgb(107, 181, 210)">My test page</h1>
+    <p><strong>This is my page</strong></p>
+    <p>It is a test page</p>
+    <!-- a bulleted list -->
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ul>
+    <!-- a numbered list -->
+    <ol>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+    </ol>
+    <!-- a centered table -->
+    <center>
+    <table>
+      <tr>
+        <th>First column</th> <!-- make it  -->
+        <th>Second column</th>
+        <th>Third column</th>
+      </tr>
+      <tr>
+        <td>First row, first column</td>
+        <td>First row, second column</td>
+        <td>First row, third column</td>
+      </tr>
+      <tr>
+        <td>Second row, first column</td>
+        <td>Second row, second column</td>
+        <td>Second row, third column</td>
+      </tr>
+    </table>
+  </center>
+    <!-- space -->
+    <br />
+    <!-- a link -->
+    <a href="https://www.freecodecamp.org">
+      <!-- an image -->
+      <img src="mdn_logo.svg" alt="MDN Web Docs homepage" />
+    </a>
+    <br />
+    <input type="text" disabled/>
+    <br />
+    <!-- a form -->
+    <form action="index.html" method="post">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" />
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" />
+      <input type="submit" value="Submit" />
+    </form>
+    <br />
+    <br />
+    <!-- a sound -->
+    <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls>
+      Sorry, your browser doesn't support embedded audio.
+    </audio>
+    <br />
+    <br />
+    <!-- a canvas -->
+    <canvas id="myCanvas"></canvas>
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+      context.fillStyle = 'rgb(200, 0, 0)';
+      context.fillRect(10, 10, 50, 50);
+      context.fillStyle = 'rgba(0, 0, 200, 0.5)';
+      context.fillRect(30, 30, 50, 50);
+    </script>
+    <br />
+    <br />
+    <!-- a map -->
+    <img src="https://www.w3schools.com/images/picture.jpg" usemap="#planetmap" />
+    <map name="planetmap">
+      <area shape="rect" coords="0,0,82,126" alt="Sun" href="sun.htm" />
+      <area shape="circle" coords="90,58,30" alt="Mercury" href="mercur.htm" />
+      <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm" />
+    </map>
+    <br />
+    <br />
+    <!-- a video -->
+    <video width="320" height="240" controls>
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+    </video>
+
+</html>
