@@ -1,95 +1,154 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <meta charset="utf-8" />
-    <title>My test page</title>
-  </head>
-  <body>
-    <h1 style="color:rgb(107, 181, 210)">My test page</h1>
-    <p><strong>This is my page</strong></p>
-    <p>It is a test page</p>
-    <!-- a bulleted list -->
-    <ul>
-      <li>First item</li>
-      <li>Second item</li>
-      <li>Third item</li>
-    </ul>
-    <!-- a numbered list -->
-    <ol>
-      <li>First item</li>
-      <li>Second item</li>
-      <li>Third item</li>
-    </ol>
-    <!-- a centered table -->
-    <center>
-    <table>
-      <tr>
-        <th>First column</th> <!-- make it  -->
-        <th>Second column</th>
-        <th>Third column</th>
-      </tr>
-      <tr>
-        <td>First row, first column</td>
-        <td>First row, second column</td>
-        <td>First row, third column</td>
-      </tr>
-      <tr>
-        <td>Second row, first column</td>
-        <td>Second row, second column</td>
-        <td>Second row, third column</td>
-      </tr>
-    </table>
-  </center>
-    <!-- space -->
-    <br />
-    <!-- a link -->
-    <a href="https://www.freecodecamp.org">
-      <!-- an image -->
-      <img src="mdn_logo.svg" alt="MDN Web Docs homepage" />
-    </a>
-    <br />
-    <input type="text" disabled/>
-    <br />
-    <!-- a form -->
-    <form action="index.html" method="post">
-      <label for="name">Name:</label>
-      <input type="text" name="name" id="name" />
-      <label for="email">Email:</label>
-      <input type="email" name="email" id="email" />
-      <input type="submit" value="Submit" />
-    </form>
-    <br />
-    <br />
-    <!-- a sound -->
-    <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls>
-      Sorry, your browser doesn't support embedded audio.
-    </audio>
-    <br />
-    <br />
-    <!-- a canvas -->
-    <canvas id="myCanvas"></canvas>
-    <script>
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
-      context.fillStyle = 'rgb(200, 0, 0)';
-      context.fillRect(10, 10, 50, 50);
-      context.fillStyle = 'rgba(0, 0, 200, 0.5)';
-      context.fillRect(30, 30, 50, 50);
-    </script>
-    <br />
-    <br />
-    <!-- a map -->
-    <img src="https://www.w3schools.com/images/picture.jpg" usemap="#planetmap" />
-    <map name="planetmap">
-      <area shape="rect" coords="0,0,82,126" alt="Sun" href="sun.htm" />
-      <area shape="circle" coords="90,58,30" alt="Mercury" href="mercur.htm" />
-      <area shape="circle" coords="124,58,8" alt="Venus" href="venus.htm" />
-    </map>
-    <br />
-    <br />
-    <!-- a video -->
-    <video width="320" height="240" controls>
-      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
-    </video>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<script src="https://kit.fontawesome.com/c247152f80.js" crossorigin="anonymous"></script>
+		<title>Tests</title>
+	</head>
 
+	<nav>
+		<ul>
+			<li><a href="index.html">Home</a></li>
+		</ul>
+	</nav>
+
+	<ul class="wrapper">
+		<li class="icon facebook">
+			<span class="tooltip">Facebook</span>
+			<span><i class="fab fa-facebook-f"></i></span>
+		</li>
+		<li class="icon twitter">
+			<span class="tooltip">Twitter</span>
+			<span><i class="fab fa-twitter"></i></span>
+		</li>
+		<li class="icon instagram">
+			<span class="tooltip">Instagram</span>
+			<span><i class="fab fa-instagram"></i></span>
+		</li>
+		<li class="icon github">
+			<span class="tooltip">Github</span>
+			<span><i class="fab fa-github"></i></span>
+		</li>
+		<li class="icon youtube">
+			<span class="tooltip">Youtube</span>
+			<span><i class="fab fa-youtube"></i></span>
+		</li>
+	</ul>
 </html>
+
+<style>
+	/*
+    Auther: Abdelrhman Said
+*/
+
+	@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	*:focus,
+	*:active {
+		outline: none !important;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.wrapper {
+		display: inline-flex;
+		list-style: none;
+	}
+
+	.wrapper .icon {
+		position: relative;
+		background: #ffffff;
+		border-radius: 50%;
+		padding: 15px;
+		margin: 10px;
+		width: 50px;
+		height: 50px;
+		font-size: 18px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+		cursor: pointer;
+		transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	.wrapper .tooltip {
+		position: absolute;
+		top: 0;
+		font-size: 14px;
+		background: #ffffff;
+		color: #ffffff;
+		padding: 5px 8px;
+		border-radius: 5px;
+		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+		opacity: 0;
+		pointer-events: none;
+		transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	.wrapper .tooltip::before {
+		position: absolute;
+		content: '';
+		height: 8px;
+		width: 8px;
+		background: #ffffff;
+		bottom: -3px;
+		left: 50%;
+		transform: translate(-50%) rotate(45deg);
+		transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	.wrapper .icon:hover .tooltip {
+		top: -45px;
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+	}
+
+	.wrapper .icon:hover span,
+	.wrapper .icon:hover .tooltip {
+		text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+	}
+
+	.wrapper .facebook:hover,
+	.wrapper .facebook:hover .tooltip,
+	.wrapper .facebook:hover .tooltip::before {
+		background: #1877f2;
+		color: #ffffff;
+	}
+
+	.wrapper .twitter:hover,
+	.wrapper .twitter:hover .tooltip,
+	.wrapper .twitter:hover .tooltip::before {
+		background: #1da1f2;
+		color: #ffffff;
+	}
+
+	.wrapper .instagram:hover,
+	.wrapper .instagram:hover .tooltip,
+	.wrapper .instagram:hover .tooltip::before {
+		background: #e4405f;
+		color: #ffffff;
+	}
+
+	.wrapper .github:hover,
+	.wrapper .github:hover .tooltip,
+	.wrapper .github:hover .tooltip::before {
+		background: #333333;
+		color: #ffffff;
+	}
+
+	.wrapper .youtube:hover,
+	.wrapper .youtube:hover .tooltip,
+	.wrapper .youtube:hover .tooltip::before {
+		background: #cd201f;
+		color: #ffffff;
+	}
+</style>

@@ -13,10 +13,11 @@
 		</header>
 		<nav>
 			<!-- navigation menu -->
-			<ul>
-				<li>Home</li>
-				<li><a href="projects.html">Projects</a></li>
-				<li><a href="pictures.html">Pictures</a></li>
+			<ul class="navigation-menu">
+				<li class="navigation-item">Home</li>
+				<li class="navigation-item"><a href="projects.html">Projects</a></li>
+				<li class="navigation-item"><a href="pictures.html">Pictures</a></li>
+				<li class="navigation-item"><a href="tests.html">Tests</a></li>
 			</ul>
 			<!-- search form -->
 			<!-- <form>
@@ -64,34 +65,33 @@
 				</p>
 			</article>
 		</main>
-		<hr />
+		<hr class="end-page-div" />
 		<footer>
 			<ul class="wrapper">
-				<li class="icon github">
-					<a href="https://github.com">
+				<a class="social-links" href="https://github.com">
+					<li class="icon github">
 						<span class="tooltip">Github</span>
 						<span><i class="fab fa-github"></i></span>
-					</a>
-				</li>
-
-				<li class="icon twitter">
-					<a href="https://twitter.com">
+					</li>
+				</a>
+				<a class="social-links" href="https://twitter.com">
+					<li class="icon twitter">
 						<span class="tooltip">Twitter</span>
 						<span><i class="fab fa-twitter"></i></span>
-					</a>
-				</li>
-				<li class="icon mastodon">
-					<a href="https://mastodon.com">
+					</li>
+				</a>
+				<a class="social-links" href="https://mastodon.com">
+					<li class="icon mastodon">
 						<span class="tooltip">Mastodon</span>
 						<span><i class="fab fa-mastodon"></i></span>
-					</a>
-				</li>
-				<li class="icon instagram">
-					<a href="https://instagram.com">
+					</li>
+				</a>
+				<a class="social-links" href="https://instagram.com">
+					<li class="icon instagram">
 						<span class="tooltip">Instagram</span>
 						<span><i class="fab fa-instagram"></i></span>
-					</a>
-				</li>
+					</li>
+				</a>
 			</ul>
 			<p>©Copyright 2050 by nobody. All rights reversed.</p>
 		</footer>
@@ -105,21 +105,19 @@
 		font-family: 'Poppins', sans-serif;
 	}
 
-	a {
-		text-decoration: none;
-		color: #333333;
-	}
-
-	ul {
+	.navigation-menu {
 		display: flex;
 		list-style: none;
 		justify-content: center;
-		/* add space between items */
-		padding: 0;
 	}
 
-	li {
+	.navigation-item {
 		padding: 0 1rem;
+	}
+
+	.social-links {
+		text-decoration: none;
+		color: rgb(10, 59, 81);
 	}
 
 	*:focus,
@@ -140,8 +138,10 @@
 		padding: 1%;
 	}
 
-	body {
-		font-family: Arial, Helvetica, sans-serif;
+	.end-page-div {
+		border: 1;
+		color: #375e97;
+		height: 1px;
 	}
 
 	footer {
