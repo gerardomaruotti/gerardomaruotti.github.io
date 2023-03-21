@@ -14,9 +14,9 @@
 		<nav>
 			<!-- navigation menu -->
 			<ul class="navigation-menu">
-				<li class="navigation-item">Home</li>
-				<li class="navigation-item"><a href="projects.html">Projects</a></li>
-				<li class="navigation-item"><a href="pictures.html">About Me</a></li>
+				<li class="navigation-item"><span>Home</span></li>
+				<li class="navigation-item"><a class="navigation-link" href="projects.html">Projects</a></li>
+				<li class="navigation-item"><a class="navigation-link" href="pictures.html">About Me</a></li>
 				<!-- <li class="navigation-item"><a href="tests.html">Tests</a></li> -->
 			</ul>
 			<!-- search form -->
@@ -113,6 +113,28 @@
 
 	.navigation-item {
 		padding: 0 1rem;
+	}
+
+	.navigation-item span,
+	.navigation-link {
+		background-color: rgb(10, 59, 81);
+		border-radius: 10px;
+		padding: 0.5rem 1rem;
+		color: rgb(255, 255, 255);
+		border: 1px solid rgb(10, 59, 81);
+		transition: 0.2s 0.1s;
+	}
+
+	.navigation-item span:hover,
+	.navigation-link:hover {
+		color: rgb(10, 59, 81);
+		background-color: rgb(255, 255, 255);
+		transition: 0.2s 0.1s;
+	}
+
+	.navigation-link {
+		text-decoration: none;
+		color: rgb(255, 255, 255);
 	}
 
 	.social-links {
