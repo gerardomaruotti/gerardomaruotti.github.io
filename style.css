@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-	* {
-		box-sizing: border-box;
-		font-family: 'Poppins', sans-serif;
-	}
+* {
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
 
-	/* header {
+/* header {
 		color: rgb(255, 255, 255);
 		background-color: rgb(10, 59, 81);
 		text-align: center;
@@ -51,133 +51,137 @@
 		color: rgb(10, 59, 81);
 		transition: 0.2s 0.1s;
 	} */
-    
-	*:focus,
-	*:active {
-		outline: none !important;
-		-webkit-tap-highlight-color: transparent;
-	}
 
-	p {
-		color: rgb(10, 59, 81);
-		font-size: medium;
-		padding: 1%;
-	}
+*:focus,
+*:active {
+	outline: none !important;
+	-webkit-tap-highlight-color: transparent;
+}
 
-	.end-page-div {
-		border: 1;
-		color: #375e97;
-		height: 1px;
-	}
+p {
+	color: rgb(10, 59, 81);
+	font-size: medium;
+	padding: 1%;
+}
 
-	footer {
-		text-align: center;
-	}
+.end-page-div {
+	border: 1;
+	color: #375e97;
+	height: 1px;
+}
 
-	main {
-		margin-top: 1rem;
-	}
+footer {
+	text-align: center;
+}
 
-	.projects-showcase {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-wrap: wrap;
-	}
+main {
+	margin-top: 1rem;
+}
 
-	.social-widget {
-		display: flex;
-		list-style: none;
-        justify-content: center;
-        align-items: center;
-		flex-wrap: wrap;
-	}
+.projects-showcase {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
 
-    .social-links {
-		text-decoration: none;
-		color: rgb(10, 59, 81);
-	}
+.social-links {
+	text-decoration: none;
+	color: rgb(10, 59, 81);
+}
 
-	.social-widget .icon {
-		position: relative;
-		background: #ffffff;
-		border-radius: 50%;
-		padding: 15px;
-		margin: 10px;
-		width: 50px;
-		height: 50px;
-		font-size: 18px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex-direction: column;
-		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-		cursor: pointer;
-		transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	}
+.social-links:hover {
+	color: rgb(10, 59, 81);
+}
 
-	.social-widget .tooltip {
-		position: absolute;
-		top: 0;
-		font-size: 14px;
-		background: #ffffff;
-		color: #ffffff;
-		padding: 5px 8px;
-		border-radius: 5px;
-		box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
-		opacity: 0;
-		pointer-events: none;
-		transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	}
+.social-widget {
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
 
-	.social-widget .tooltip::before {
-		position: absolute;
-		content: '';
-		height: 8px;
-		width: 8px;
-		background: #ffffff;
-		bottom: -3px;
-		left: 50%;
-		transform: translate(-50%) rotate(45deg);
-		transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-	}
+.social-widget .icon {
+	position: relative;
+	background: #ffffff;
+	border-radius: 50%;
+	padding: 15px;
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+	transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
-	.social-widget .icon:hover .tooltip {
-		top: -45px;
-		opacity: 1;
-		visibility: visible;
-		pointer-events: auto;
-	}
+.social-widget .tooltip {
+	position: absolute;
+	top: 0;
+	font-size: 14px;
+	background: #ffffff;
+	color: #ffffff;
+	padding: 5px 8px;
+	border-radius: 5px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+	opacity: 0;
+	pointer-events: none;
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
-	.social-widget .icon:hover span,
-	.social-widget .icon:hover .tooltip {
-		text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-	}
+.social-widget .tooltip::before {
+	position: absolute;
+	content: '';
+	height: 8px;
+	width: 8px;
+	background: #ffffff;
+	bottom: -3px;
+	left: 50%;
+	transform: translate(-50%) rotate(45deg);
+	transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
-	.social-widget .github:hover,
-	.social-widget .github:hover .tooltip,
-	.social-widget .github:hover .tooltip::before {
-		background: #333333;
-		color: #ffffff;
-	}
+.social-widget .icon:hover .tooltip {
+	top: -45px;
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
 
-	.social-widget .instagram:hover,
-	.social-widget .instagram:hover .tooltip,
-	.social-widget .instagram:hover .tooltip::before {
-		background: #e4405f;
-		color: #ffffff;
-	}
+.social-widget .icon:hover span,
+.social-widget .icon:hover .tooltip {
+	text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
 
-	.social-widget .mastodon:hover,
-	.social-widget .mastodon:hover .tooltip,
-	.social-widget .mastodon:hover .tooltip::before {
-		background: #5a60ed;
-		color: #ffffff;
-	}
+.social-widget .github:hover,
+.social-widget .github:hover .tooltip,
+.social-widget .github:hover .tooltip::before {
+	background: #333333;
+	color: #ffffff;
+}
 
-	.social-widget .twitter:hover,
-	.social-widget .twitter:hover .tooltip,
-	.social-widget .twitter:hover .tooltip::before {
-		background: #1da1f2;
-		color: #ffffff;
-	}
+.social-widget .instagram:hover,
+.social-widget .instagram:hover .tooltip,
+.social-widget .instagram:hover .tooltip::before {
+	background: #e4405f;
+	color: #ffffff;
+}
+
+.social-widget .mastodon:hover,
+.social-widget .mastodon:hover .tooltip,
+.social-widget .mastodon:hover .tooltip::before {
+	background: #5a60ed;
+	color: #ffffff;
+}
+
+.social-widget .twitter:hover,
+.social-widget .twitter:hover .tooltip,
+.social-widget .twitter:hover .tooltip::before {
+	background: #1da1f2;
+	color: #ffffff;
+}
