@@ -185,10 +185,3 @@ main {
 	background: #1da1f2;
 	color: #ffffff;
 }
-
-.social-widget .threads:hover,
-.social-widget .threads:hover .tooltip,
-.social-widget .threads:hover .tooltip::before {
-	background: #111;
-	color: #ffffff;
-}
