@@ -168,7 +168,7 @@ main {
 .social-widget .instagram:hover,
 .social-widget .instagram:hover .tooltip,
 .social-widget .instagram:hover .tooltip::before {
-	background: #e4405f;
+	background: #ff0063;
 	color: #ffffff;
 }
 
@@ -183,5 +183,12 @@ main {
 .social-widget .twitter:hover .tooltip,
 .social-widget .twitter:hover .tooltip::before {
 	background: #1da1f2;
+	color: #ffffff;
+}
+
+.social-widget .threads:hover,
+.social-widget .threads:hover .tooltip,
+.social-widget .threads:hover .tooltip::before {
+	background: #111;
 	color: #ffffff;
 }
