@@ -4,54 +4,6 @@
 	font-family: 'Poppins', sans-serif;
 }
 
-/* header {
-		color: rgb(255, 255, 255);
-		background-color: rgb(10, 59, 81);
-		text-align: center;
-		padding: 1rem;
-	}
-
-    nav {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 0.5rem;
-        justify-content: space-around;
-        margin-left: 10rem;
-        margin-right: 10rem;
-    }
-
-	.navigation-menu {
-		display: flex;
-		list-style: none;
-		justify-content: center;
-	}
-
-	.navigation-item {
-		padding: 0 1rem;
-        background: rgb(10, 59, 81);
-        border-radius: 10px;
-		padding: 0.5rem 1rem;
-        border: 1px solid rgb(10, 59, 81);
-        transition: 0.2s 0.1s;
-	}
-
-	.navigation-item span {
-		color: rgb(255, 255, 255);
-		
-	}
-
-    .navigation-item:hover {
-        background-color: rgb(255, 255, 255);
-        transition: 0.2s 0.1s;
-    }
-
-	.navigation-item span:hover {
-		color: rgb(10, 59, 81);
-		transition: 0.2s 0.1s;
-	} */
-
 *:focus,
 *:active {
 	outline: none !important;
