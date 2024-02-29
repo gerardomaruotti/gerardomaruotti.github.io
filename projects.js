@@ -12,7 +12,7 @@ const projects = [
 		name: 'CodeMastery',
 		description:
 			'The project aims to simplify computer science education for non-STEM university students, focusing on mastering programming skills for informatics exams. The goal is to assist students in overcoming challenges related to learning basic computer science concepts and programming skills, enabling them to excel in exams and prepare for a successful professional future aligned with modern demands.',
-		technologies: ['Figma', 'React', 'JavaScript', 'Node', 'Tailwind', 'Docker'],
+		technologies: ['Figma', 'React', 'JavaScript', 'Node', 'Tailwind'],
 		link: 'https://github.com/gerardomaruotti/CodeMastery',
 	},
 	{
@@ -91,8 +91,8 @@ function createProjectCard(project) {
 	cardTitle.classList.add('card-title', 'text-xl', 'font-semibold', 'text-center');
 	cardTitle.textContent = project.name;
 
-	const headerDiv = document.createElement('div');
-	headerDiv.classList.add('flex', 'justify-between', 'items-center');
+	// const headerDiv = document.createElement('div');
+	// headerDiv.classList.add('flex', 'justify-between', 'items-center');
 
 	const cardText = document.createElement('p');
 	cardText.classList.add('card-text', 'py-2', 'text-center');
@@ -188,11 +188,11 @@ function createProjectCard(project) {
 		window.open(project.link, '_blank');
 	});
 
-	// cardBody.appendChild(techList);
-	// cardBody.appendChild(cardTitle);
-	headerDiv.appendChild(cardTitle);
-	headerDiv.appendChild(techList);
-	cardBody.appendChild(headerDiv);
+	cardBody.appendChild(techList);
+	cardBody.appendChild(cardTitle);
+	// headerDiv.appendChild(cardTitle);
+	// headerDiv.appendChild(techList);
+	// cardBody.appendChild(headerDiv);
 	cardBody.appendChild(cardText);
 	cardBody.appendChild(buttonContainer);
 	buttonContainer.appendChild(cardLink);
