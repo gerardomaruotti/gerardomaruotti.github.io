@@ -72,16 +72,16 @@ function createProjectCard(project) {
 		'mx-auto',
 		'my-4',
 		'p-4',
-		'bg-neutral-100',
+		'bg-neutral-200',
 		'dark:bg-neutral-700',
 		'border',
 		'border-transparent',
 		'shadow',
 		'hover:shadow-lg',
 		'transition',
-		'duration-300',
+		'duration-200',
 		'rounded-xl',
-		'hover:border-neutral-300'
+		'hover:border-sky-300'
 	);
 
 	const cardBody = document.createElement('div');
@@ -110,7 +110,18 @@ function createProjectCard(project) {
 	buttonContainer.classList.add('flex', 'justify-center', 'items-center');
 
 	const cardLink = document.createElement('button');
-	cardLink.classList.add('btn', 'bg-neutral-500', 'text-neutral-50', 'px-4', 'py-2', 'rounded-full');
+	cardLink.classList.add(
+		'btn',
+		'bg-sky-500',
+		'hover:bg-sky-700',
+		'active:bg-sky-900',
+		'text-white',
+		'px-4',
+		'py-2',
+		'rounded-full',
+		'transition',
+		'duration-100'
+	);
 	cardLink.href = project.link;
 	cardLink.textContent = 'View on GitHub';
 
