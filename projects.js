@@ -46,12 +46,13 @@ const projects = [
 	// {
 	// 	name: 'NBA Stats',
 	// 	description: 'SwiftUI app which displays NBA games and teams statistics in real time using new iOS technologies and frameworks.',
-	// 	technologies: ['', ''],
+	// 	technologies: ['Swift', 'Apple', 'API'],
 	// 	link: 'https://github.com/gerardomaruotti/NBA-Stats',
 	// },
 	{
 		name: 'Temperature Manager',
-		description: 'Simple MQTT Client written in Python.',
+		description:
+			'This Python project demonstrates the application of MQTT for data management. It presents an interactive program structure with initialization, user input handling for data collection control, and a termination process.',
 		technologies: ['Python', 'MQTT'],
 		link: 'https://github.com/gerardomaruotti/Temperature-Manager',
 	},
@@ -67,6 +68,9 @@ function createProjectCard(project) {
 	const card = document.createElement('div');
 	card.classList.add(
 		'card',
+		'max-w-xl',
+		'mx-auto',
+		'my-4',
 		'p-4',
 		'bg-neutral-100',
 		'dark:bg-neutral-700',
