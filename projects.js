@@ -6,28 +6,31 @@ const projects = [
 		description:
 			"ThesisManagement revitalizes Politecnico di Torino's thesis system, prioritizing a user-friendly experience. Focus includes improving frontend/backend, modernizing the interface, and streamlining system functions.",
 		// technologies: ['Figma', 'React', 'JavaScript', 'Bootstrap', 'Docker', 'Node'],
-		technologies: ['Figma', 'React', 'Bootstrap', 'Docker'],
+		technologies: ['React'],
 		link: 'https://github.com/gerardomaruotti/ThesisManagement',
 	},
 	{
 		name: 'CodeMastery',
 		description:
 			'The project aims to simplify computer science education for non-STEM university students, focusing on mastering programming skills for informatics exams. The goal is to assist students in overcoming challenges related to learning basic computer science concepts and programming skills, enabling them to excel in exams and prepare for a successful professional future aligned with modern demands.',
-		technologies: ['Figma', 'React', 'JavaScript', 'Node', 'Tailwind'],
+		// technologies: ['Figma', 'React', 'JavaScript', 'Node', 'Tailwind'],
+		technologies: ['React'],
 		link: 'https://github.com/gerardomaruotti/CodeMastery',
 	},
 	{
 		name: 'EZWallet',
 		description:
 			'EZWallet is a web application designed to help individuals and families keep track of their expenses. Users can enter and categorize their expenses, allowing them to quickly see where their money is going. EZWallet is a powerful tool for those looking to take control of their finances and make informed decisions about their spending.',
-		technologies: ['JavaScript', 'Node', 'Docker'],
+		// technologies: ['JavaScript', 'Node', 'Docker'],
+		technologies: ['Node'],
 		link: 'https://github.com/gerardomaruotti/EzWallet',
 	},
 	{
 		name: 'CMSmall',
 		description:
 			'CMSmall is a web application for a small Content Management System. The CMS has a back-office (i.e., the administrative/management area) and a front-office (i.e., the version of the web application visible to everybody, without authentication). In the back-office, the CMS allows any authenticated user to create and manage pages.',
-		technologies: ['React', 'JavaScript', 'Bootstrap', 'Node'],
+		// technologies: ['React', 'JavaScript', 'Bootstrap', 'Node'],
+		technologies: ['React'],
 		link: 'https://github.com/gerardomaruotti/CMSmall',
 	},
 	{
@@ -95,12 +98,8 @@ function createProjectCard(project) {
 	const headerDiv = document.createElement('div');
 	headerDiv.classList.add('flex', 'justify-between', 'items-center');
 
-	const cardText = document.createElement('p');
-	cardText.classList.add('card-text', 'py-2', 'text-center');
-	cardText.textContent = project.description;
-
 	const techList = document.createElement('div');
-	techList.classList.add('tech-list', 'flex', 'justify-center', 'items-center', 'flex-wrap', 'pb-4');
+	techList.classList.add('tech-list', 'flex', 'justify-center', 'items-center', 'flex-wrap');
 	if (project.technologies) {
 		project.technologies.forEach((tech) => {
 			let iconName, techIcon;
@@ -176,6 +175,10 @@ function createProjectCard(project) {
 			}
 		});
 	}
+
+	const cardText = document.createElement('p');
+	cardText.classList.add('card-text', 'py-2', 'text-center');
+	cardText.textContent = project.description;
 
 	const buttonContainer = document.createElement('div');
 	buttonContainer.classList.add('flex', 'justify-center', 'items-center');
