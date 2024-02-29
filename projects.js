@@ -5,7 +5,8 @@ const projects = [
 		name: 'ThesisManagement',
 		description:
 			"ThesisManagement revitalizes Politecnico di Torino's thesis system, prioritizing a user-friendly experience. Focus includes improving frontend/backend, modernizing the interface, and streamlining system functions.",
-		technologies: ['Figma', 'React', 'JavaScript', 'Bootstrap', 'Docker', 'Node'],
+		// technologies: ['Figma', 'React', 'JavaScript', 'Bootstrap', 'Docker', 'Node'],
+		technologies: ['Figma', 'React', 'Bootstrap', 'Docker'],
 		link: 'https://github.com/gerardomaruotti/ThesisManagement',
 	},
 	{
@@ -91,15 +92,15 @@ function createProjectCard(project) {
 	cardTitle.classList.add('card-title', 'text-xl', 'font-semibold', 'text-center');
 	cardTitle.textContent = project.name;
 
-	// const headerDiv = document.createElement('div');
-	// headerDiv.classList.add('flex', 'justify-between', 'items-center');
+	const headerDiv = document.createElement('div');
+	headerDiv.classList.add('flex', 'justify-between', 'items-center');
 
 	const cardText = document.createElement('p');
 	cardText.classList.add('card-text', 'py-2', 'text-center');
 	cardText.textContent = project.description;
 
 	const techList = document.createElement('div');
-	techList.classList.add('tech-list');
+	techList.classList.add('tech-list', 'flex', 'justify-center', 'items-center', 'flex-wrap', 'pb-4');
 	if (project.technologies) {
 		project.technologies.forEach((tech) => {
 			let iconName, techIcon;
@@ -188,11 +189,11 @@ function createProjectCard(project) {
 		window.open(project.link, '_blank');
 	});
 
-	cardBody.appendChild(techList);
-	cardBody.appendChild(cardTitle);
-	// headerDiv.appendChild(cardTitle);
-	// headerDiv.appendChild(techList);
-	// cardBody.appendChild(headerDiv);
+	// cardBody.appendChild(techList);
+	// cardBody.appendChild(cardTitle);
+	headerDiv.appendChild(cardTitle);
+	headerDiv.appendChild(techList);
+	cardBody.appendChild(headerDiv);
 	cardBody.appendChild(cardText);
 	cardBody.appendChild(buttonContainer);
 	buttonContainer.appendChild(cardLink);
