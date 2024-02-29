@@ -5,32 +5,32 @@ const projects = [
 		name: 'ThesisManagement',
 		description:
 			"ThesisManagement revitalizes Politecnico di Torino's thesis system, prioritizing a user-friendly experience. Focus includes improving frontend/backend, modernizing the interface, and streamlining system functions.",
-		// technologies: ['Figma', 'React', 'JavaScript', 'Bootstrap', 'Docker', 'Node'],
-		technologies: ['React'],
+		technologies: ['React', 'Figma', 'JavaScript', 'Bootstrap', 'Docker', 'Node'],
+		// technologies: ['React'],
 		link: 'https://github.com/gerardomaruotti/ThesisManagement',
 	},
 	{
 		name: 'CodeMastery',
 		description:
 			'The project aims to simplify computer science education for non-STEM university students, focusing on mastering programming skills for informatics exams. The goal is to assist students in overcoming challenges related to learning basic computer science concepts and programming skills, enabling them to excel in exams and prepare for a successful professional future aligned with modern demands.',
-		// technologies: ['Figma', 'React', 'JavaScript', 'Node', 'Tailwind'],
-		technologies: ['React'],
+		technologies: ['React', 'Figma', 'JavaScript', 'Node', 'Tailwind'],
+		// technologies: ['React'],
 		link: 'https://github.com/gerardomaruotti/CodeMastery',
 	},
 	{
 		name: 'EZWallet',
 		description:
 			'EZWallet is a web application designed to help individuals and families keep track of their expenses. Users can enter and categorize their expenses, allowing them to quickly see where their money is going. EZWallet is a powerful tool for those looking to take control of their finances and make informed decisions about their spending.',
-		// technologies: ['JavaScript', 'Node', 'Docker'],
-		technologies: ['Node'],
+		technologies: ['Node', 'JavaScript', 'Docker'],
+		// technologies: ['Node'],
 		link: 'https://github.com/gerardomaruotti/EzWallet',
 	},
 	{
 		name: 'CMSmall',
 		description:
 			'CMSmall is a web application for a small Content Management System. The CMS has a back-office (i.e., the administrative/management area) and a front-office (i.e., the version of the web application visible to everybody, without authentication). In the back-office, the CMS allows any authenticated user to create and manage pages.',
-		// technologies: ['React', 'JavaScript', 'Bootstrap', 'Node'],
-		technologies: ['React'],
+		technologies: ['React', 'JavaScript', 'Bootstrap', 'Node'],
+		// technologies: ['React'],
 		link: 'https://github.com/gerardomaruotti/CMSmall',
 	},
 	{
@@ -68,6 +68,14 @@ const projects = [
 	},
 ];
 
+/**
+ * Creates a project card element based on the given project object.
+ * The card element contains various HTML elements such as divs, headings, icons, and buttons,
+ * which are dynamically created and styled based on the project data.
+ *
+ * @param {Object} project - The project object containing the project details such as name, technologies, description, and link.
+ * @returns {HTMLElement} - The dynamically created project card element.
+ */
 function createProjectCard(project) {
 	const card = document.createElement('div');
 	card.classList.add(
@@ -95,86 +103,63 @@ function createProjectCard(project) {
 	cardTitle.classList.add('card-title', 'text-xl', 'font-semibold', 'text-center');
 	cardTitle.textContent = project.name;
 
-	const headerDiv = document.createElement('div');
-	headerDiv.classList.add('flex', 'justify-between', 'items-center');
-
 	const techList = document.createElement('div');
-	techList.classList.add('tech-list', 'flex', 'justify-center', 'items-center', 'flex-wrap');
+	techList.classList.add('tech-list', 'flex', 'justify-center', 'items-center', 'py-2');
+
 	if (project.technologies) {
 		project.technologies.forEach((tech) => {
-			let iconName, techIcon;
+			let iconName;
 			switch (tech.toLowerCase()) {
 				case 'figma':
 					iconName = 'fa-figma';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'react':
 					iconName = 'fa-react';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'javascript':
 					iconName = 'fa-square-js';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'bootstrap':
 					iconName = 'fa-bootstrap';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'docker':
 					iconName = 'fa-docker';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'node':
 					iconName = 'fa-node';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'c':
 					iconName = 'fa-c';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'swift':
 					iconName = 'fa-swift';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'apple':
 					iconName = 'fa-apple';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'python':
 					iconName = 'fa-python';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				case 'java':
 					iconName = 'fa-java';
-					techIcon = document.createElement('i');
-					techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
-					techList.appendChild(techIcon);
 					break;
 				default:
 					break;
 			}
+
+			if (iconName) {
+				const techIcon = document.createElement('i');
+				techIcon.classList.add('fa-brands', iconName, 'text-2xl', 'mx-1');
+				// if (index > 0) {
+				// 	techIcon.classList.add('hidden', 'md:block');
+				// }
+				techList.appendChild(techIcon);
+			}
 		});
 	}
+
+	const headerDiv = document.createElement('div');
+	headerDiv.classList.add('flex', 'flex-col', 'justify-between', 'items-center', 'flex-wrap');
 
 	const cardText = document.createElement('p');
 	cardText.classList.add('card-text', 'py-2', 'text-center');
@@ -192,8 +177,6 @@ function createProjectCard(project) {
 		window.open(project.link, '_blank');
 	});
 
-	// cardBody.appendChild(techList);
-	// cardBody.appendChild(cardTitle);
 	headerDiv.appendChild(cardTitle);
 	headerDiv.appendChild(techList);
 	cardBody.appendChild(headerDiv);
