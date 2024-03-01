@@ -161,7 +161,7 @@ function createProjectCard(project) {
 	headerDiv.classList.add('flex', 'justify-between', 'items-center', 'flex-wrap');
 
 	const cardText = document.createElement('p');
-	cardText.classList.add('card-text', 'py-2', 'text-center');
+	cardText.classList.add('card-text', 'py-2');
 	cardText.textContent = project.description;
 
 	const buttonContainer = document.createElement('div');
