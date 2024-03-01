@@ -79,23 +79,28 @@ function createProjectCard(project) {
 		'mx-auto',
 		'my-4',
 		'p-6',
-		'bg-neutral-200',
-		'dark:bg-neutral-700',
-		'border',
-		'border-transparent',
+		'bg-gradient-to-tr',
+		'from-sky-50',
+		'to-sky-100',
+		'dark:from-slate-500',
+		'dark:to-slate-700',
 		'shadow',
 		'hover:shadow-md',
 		'transition',
 		'duration-200',
-		'rounded-xl',
-		'hover:border-sky-300'
+		'rounded-xl'
 	);
 
 	const cardBody = document.createElement('div');
 	cardBody.classList.add('card-body');
 
+	const titleLink = document.createElement('a');
+	titleLink.classList.add('card-title-link', 'hover:text-sky-500', 'transition', 'duration-200', 'ease-in-out');
+	titleLink.href = project.link;
+	titleLink.target = '_blank';
+
 	const cardTitle = document.createElement('h2');
-	cardTitle.classList.add('card-title', 'text-xl', 'font-semibold', 'text-center');
+	cardTitle.classList.add('card-title', 'text-xl', 'font-semibold');
 	cardTitle.textContent = project.name;
 
 	const singleTech = document.createElement('div');
@@ -175,7 +180,8 @@ function createProjectCard(project) {
 		window.open(project.link, '_blank');
 	});
 
-	headerDiv.appendChild(cardTitle);
+	titleLink.appendChild(cardTitle);
+	headerDiv.appendChild(titleLink);
 	headerDiv.appendChild(singleTech);
 	headerDiv.appendChild(techList);
 	cardBody.appendChild(headerDiv);
