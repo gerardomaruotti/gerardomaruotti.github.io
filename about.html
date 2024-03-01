@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="./public/styles.css" rel="stylesheet" />
+		<title>About</title>
+		<link rel="icon" type="image/png" href="./public/favicon.svg" />
+		<link rel="apple-touch-icon" href="./public/favicon.svg" />
+		<script src="https://kit.fontawesome.com/c247152f80.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="font-sans bg-neutral-50 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100">
+		<header>
+			<nav class="pt-4 px-4 flex items-center justify-between">
+				<a href="/"><h1 class="text-xl hover:text-sky-500">Gerardo Maruotti</h1></a>
+				<a class="no-underline text-lg text-neutral-400 transition duration-100">About</a>
+			</nav>
+		</header>        
+		<main id="about-section" class="p-4 flex flex-col md:p-8">
+            <div class="flex justify-around align-bottom">
+                <img 
+                src="./public/profile.jpeg"
+                alt="Gerardo Maruotti"
+                loading="lazy"
+                class="rounded-3xl shadow-lg w-72 h-72 self-end object-cover object-center hidden md:block"
+            ></img>
+            <div class="flex flex-col">
+			<section class="md:p-6">
+				<h2 class="text-xl font-semibold text-sky-500">About me</h2>
+				<p class="mt-2">I'm a software engineer with a passion for web development and design.</p>
+				<p>I also have experience in both native and cross-platform mobile development.</p>
+				<p>I'm currently pursuing my MSc in Computer Engineering at Politecnico di Torino, Italy.</p>
+			</section>
+			<img 
+                src="./public/profile.jpeg"
+                alt="Gerardo Maruotti"
+                loading="lazy"
+                class="rounded-3xl shadow-lg my-4 w-40 h-40 self-center object-cover object-center md:hidden"
+            ></img>
+			<section class="py-4 md:px-6 md:py-4">
+				<h2 class="text-xl font-semibold text-sky-500">Contact</h2>
+				<p class="mt-2">You can reach me at <a href="mailto:maruotti@icloud.com" class="hover:text-sky-500 hover:underline">maruotti@icloud.com</a></p>
+			</section>
+            </div>
+            </div>
+		</main>
+		<footer class="pb-10 text-center">
+			<p class="p-4">© 2024 Gerardo Maruotti</p>
+			<div class="flex justify-center align-bottom">
+				<a href="https://github.com/gerardomaruotti" class="no-underline sm:px-1 px-1.5 text-lg hover:text-sky-500 transition duration-100"
+					><i class="fab fa-github"></i
+				></a>
+				<a href="https://linkedin.com/in/gerardo-maruotti" class="no-underline sm:px-1 px-1.5 text-lg hover:text-sky-500 transition duration-100"
+					><i class="fa-brands fa-linkedin-in"></i
+				></a>
+				<a href="https://twitter.com/gerardomaruott1" class="no-underline sm:px-1 px-1.5 text-lg hover:text-sky-500 transition duration-100"
+					><i class="fa-brands fa-x-twitter"></i
+				></a>
+				<a
+					href="https://www.youtube.com/channel/UC9z3J8Yz3VY3ZVz3v3Zv3Zv3"
+					class="no-underline sm:px-1 px-1.5 text-lg hover:text-sky-500 transition duration-100"
+					><i class="fa-brands fa-mail"></i
+				></a>
+			</div>
+		</footer>
+	</body>
+</html>
