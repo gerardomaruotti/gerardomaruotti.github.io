@@ -73,23 +73,7 @@ const projects = [
 
 function createProjectCard(project) {
 	const card = document.createElement('div');
-	card.classList.add(
-		'card',
-		'max-w-xl',
-		'mx-auto',
-		'my-4',
-		'p-6',
-		'bg-gradient-to-tr',
-		'from-sky-50',
-		'to-sky-100',
-		'dark:from-slate-500',
-		'dark:to-slate-700',
-		'shadow',
-		'hover:shadow-md',
-		'transition',
-		'duration-200',
-		'rounded-xl'
-	);
+	card.classList.add('card');
 
 	const cardBody = document.createElement('div');
 	cardBody.classList.add('card-body');
@@ -152,7 +136,7 @@ function createProjectCard(project) {
 
 			if (iconName) {
 				const techIcon = document.createElement('i');
-				techIcon.classList.add('flex', 'fa-brands', iconName, 'text-2xl', 'mx-1');
+				techIcon.classList.add('flex', 'fa-brands', iconName, 'text-2xl', 'mx-1', 'hover:animate-spin');
 				techList.appendChild(techIcon);
 				if (index === 0 || index === 1) {
 					singleTech.appendChild(techIcon.cloneNode(true));
@@ -172,7 +156,7 @@ function createProjectCard(project) {
 	buttonContainer.classList.add('flex', 'justify-center', 'items-center');
 
 	const cardLink = document.createElement('button');
-	cardLink.classList.add('btn', 'bg-sky-500', 'hover:bg-sky-700', 'text-white', 'px-4', 'py-2', 'shadow', 'rounded-full', 'transition');
+	cardLink.classList.add('btn');
 	cardLink.href = project.link;
 	cardLink.textContent = 'View on GitHub';
 

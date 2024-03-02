@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.circle {
-	width: 450px;
-	height: 450px;
-	background: linear-gradient(to bottom, #157eed 50%, #157eed 50%);
-	filter: blur(120px);
+.card {
+	@apply mx-auto my-4 max-w-xl rounded-xl bg-black/10 p-6 shadow-md backdrop-blur-lg backdrop-filter transition duration-200 hover:shadow-lg dark:bg-white/10 border border-transparent hover:border-sky-500;
+}
+
+/* .btn {
+	@apply px-4 py-2 rounded-full shadow-md border border-sky-500 bg-sky-500 text-white transition duration-200 hover:bg-sky-600 hover:border-sky-50;
+} */
+
+/* .btn {
+	@apply px-4 py-2 bg-gradient-to-tr from-sky-400 to-sky-600 rounded-full shadow-md text-white hover:from-sky-600 hover:to-sky-800 transition duration-300 border border-transparent hover:border-sky-50;
+} */
+
+.btn {
+	@apply px-4 py-2 bg-gradient-to-tr from-sky-400 to-sky-600 rounded-full shadow-md text-white hover:from-sky-600 hover:to-sky-800;
 }
