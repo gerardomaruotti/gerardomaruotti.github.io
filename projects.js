@@ -146,7 +146,7 @@ function createProjectCard(project) {
 	}
 
 	const headerDiv = document.createElement('div');
-	headerDiv.classList.add('flex', 'justify-between', 'items-center', 'flex-wrap', 'text-sky-950', 'dark:text-sky-100');
+	headerDiv.classList.add('flex', 'justify-between', 'items-center', 'flex-wrap', 'text-sky-950', 'dark:text-neutral-50');
 
 	const cardText = document.createElement('p');
 	cardText.classList.add('card-text', 'py-2');
