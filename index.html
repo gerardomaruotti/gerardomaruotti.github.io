@@ -3,11 +3,36 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Gerardo Maruotti — Indie iOS apps</title>
+		<meta
+			name="description"
+			content="Gerardo Maruotti — software engineer building indie iOS apps on the side, including PhotoTidy and Gatherkeep."
+		/>
+		<link rel="canonical" href="https://gerardomaruotti.github.io/" />
+		<meta name="robots" content="index, follow" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://gerardomaruotti.github.io/" />
+		<meta property="og:title" content="Gerardo Maruotti — Indie iOS apps" />
+		<meta
+			property="og:description"
+			content="Software engineer building indie iOS apps on the side — PhotoTidy, Gatherkeep, and more."
+		/>
+		<meta property="og:image" content="https://gerardomaruotti.github.io/public/profile.jpeg" />
+		<meta property="og:locale" content="en_US" />
+
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Gerardo Maruotti — Indie iOS apps" />
+		<meta
+			name="twitter:description"
+			content="Software engineer building indie iOS apps on the side — PhotoTidy, Gatherkeep, and more."
+		/>
+		<meta name="twitter:image" content="https://gerardomaruotti.github.io/public/profile.jpeg" />
+
 		<link href="./public/styles.css" rel="stylesheet" />
-		<title>Gerardo Maruotti</title>
-		<link rel="icon" type="image/png" href="./public/favicon.svg" />
-		<link rel="apple-touch-icon" href="./public/favicon.svg" />
-		<script src="https://kit.fontawesome.com/c247152f80.js" crossorigin="anonymous"></script>
+		<link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
+		<link rel="apple-touch-icon" sizes="180x180" href="./public/apple-touch-icon.png" />
+		<script src="https://kit.fontawesome.com/c247152f80.js" crossorigin="anonymous" defer></script>
 		<script defer src="projects.js"></script>
 	</head>
 	<body class="custom-bg global-colors">
@@ -17,26 +42,140 @@
 				<a href="about.html" class="text-lg no-underline transition duration-100 hover:text-sky-500">About</a>
 			</nav>
 		</header>
-		<main id="projects-section" class="flex flex-col p-4"></main>
+		<main class="flex flex-col p-4">
+			<section class="mx-auto max-w-xl px-2 pb-6 pt-8 text-center">
+				<p class="text-sm font-medium uppercase tracking-wide text-sky-500">Indie iOS</p>
+				<h2 class="mt-2 text-3xl font-semibold leading-tight sm:text-4xl">
+					Apps that stay private — and stay on your device.
+				</h2>
+				<p class="mt-3 text-base text-neutral-700 dark:text-neutral-200">
+					I'm a software engineer building indie iOS apps on the side. Here’s what I’m shipping.
+				</p>
+				<div class="mt-6 flex flex-wrap items-center justify-center gap-3">
+					<a href="#apps" class="btn">See my apps</a>
+					<a
+						href="about.html"
+						class="rounded-full border border-sky-500/40 px-4 py-2 text-sky-700 transition duration-200 hover:border-sky-500 hover:text-sky-500 dark:text-sky-200"
+						>About me</a
+					>
+				</div>
+			</section>
+
+			<section id="apps" class="mx-auto w-full max-w-xl">
+				<h2 class="px-2 text-xl font-semibold text-sky-500">Apps</h2>
+
+				<article class="card">
+					<div class="card-body">
+						<div class="flex flex-wrap items-center justify-between gap-2 text-sky-950 dark:text-neutral-50">
+							<a
+								href="https://gerardomaruotti.github.io/photo-tidy-site/"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="card-title-link transition duration-200 ease-in-out hover:text-sky-500"
+							>
+								<h3 class="card-title text-xl font-semibold">PhotoTidy</h3>
+							</a>
+							<span class="text-sm text-sky-600 dark:text-sky-300">TestFlight</span>
+						</div>
+						<p class="card-text py-2">
+							Find duplicate and similar photos on your iPhone. Everything runs on-device — nothing is
+							uploaded.
+						</p>
+						<div class="flex flex-wrap items-center justify-center gap-3">
+							<a
+								href="https://gerardomaruotti.github.io/photo-tidy-site/"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn"
+								>Learn more</a
+							>
+							<a
+								href="https://testflight.apple.com/join/RuyQJqvQ"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="rounded-full border border-sky-500/40 px-4 py-2 text-sky-700 transition duration-200 hover:border-sky-500 hover:text-sky-500 dark:text-sky-200"
+								>Join TestFlight</a
+							>
+						</div>
+					</div>
+				</article>
+
+				<article class="card">
+					<div class="card-body">
+						<div class="flex flex-wrap items-center justify-between gap-2 text-sky-950 dark:text-neutral-50">
+							<a
+								href="https://gerardomaruotti.github.io/gatherkeep-site/"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="card-title-link transition duration-200 ease-in-out hover:text-sky-500"
+							>
+								<h3 class="card-title text-xl font-semibold">Gatherkeep</h3>
+							</a>
+							<span class="text-sm text-sky-600 dark:text-sky-300">Beta</span>
+						</div>
+						<p class="card-text py-2">
+							Save links, notes, photos, files, and voice notes in one private place — then find them
+							later.
+						</p>
+						<div class="flex flex-wrap items-center justify-center gap-3">
+							<a
+								href="https://gerardomaruotti.github.io/gatherkeep-site/"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="btn"
+								>Join the beta</a
+							>
+						</div>
+					</div>
+				</article>
+
+				<article class="card">
+					<div class="card-body">
+						<div class="flex flex-wrap items-center justify-between gap-2 text-sky-950 dark:text-neutral-50">
+							<h3 class="card-title text-xl font-semibold">Northstar Wealth</h3>
+							<span
+								class="rounded-full bg-sky-500/15 px-3 py-1 text-sm font-medium text-sky-700 dark:text-sky-200"
+								>Coming soon</span
+							>
+						</div>
+						<p class="card-text py-2">An iOS app currently in development. More details soon.</p>
+					</div>
+				</article>
+			</section>
+
+			<section id="university" class="mx-auto mt-6 w-full max-w-xl">
+				<h2 class="px-2 text-xl font-semibold text-sky-500">University projects</h2>
+				<p class="px-2 pb-2 text-sm text-neutral-600 dark:text-neutral-300">
+					Earlier coursework and school projects.
+				</p>
+				<div id="projects-section" class="flex flex-col"></div>
+			</section>
+		</main>
 		<footer class="pb-10 text-center">
-			<p class="p-4">© 2024 Gerardo Maruotti</p>
+			<p class="p-4">© 2026 Gerardo Maruotti</p>
 			<div class="flex justify-center align-bottom">
 				<a
 					href="https://github.com/gerardomaruotti"
 					target="_blank"
+					rel="noopener noreferrer"
 					class="px-1.5 text-lg no-underline transition duration-100 hover:text-sky-500 sm:px-1"
+					aria-label="GitHub"
 					><i class="fab fa-github"></i
 				></a>
 				<a
 					href="https://linkedin.com/in/gerardo-maruotti"
 					target="_blank"
+					rel="noopener noreferrer"
 					class="px-1.5 text-lg no-underline transition duration-100 hover:text-sky-500 sm:px-1"
+					aria-label="LinkedIn"
 					><i class="fa-brands fa-linkedin-in"></i
 				></a>
 				<a
 					href="https://twitter.com/gerardomaruott1"
 					target="_blank"
+					rel="noopener noreferrer"
 					class="px-1.5 text-lg no-underline transition duration-100 hover:text-sky-500 sm:px-1"
+					aria-label="X (Twitter)"
 					><i class="fa-brands fa-x-twitter"></i
 				></a>
 			</div>

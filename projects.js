@@ -179,6 +179,9 @@ function createProjectCard(project) {
 
 function main() {
 	const projectsContainer = document.getElementById('projects-section');
+	if (!projectsContainer) {
+		return;
+	}
 
 	projects.forEach((project) => {
 		const projectCard = createProjectCard(project);
@@ -186,4 +189,4 @@ function main() {
 	});
 }
 
-main();
+document.addEventListener('DOMContentLoaded', main);
