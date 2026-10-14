@@ -41,5 +41,5 @@
 } */
 
 .btn {
-	@apply px-4 py-2 bg-gradient-to-tr from-sky-400 to-sky-600 rounded-full shadow-md text-white hover:from-sky-600 hover:to-sky-800;
+	@apply inline-block px-4 py-2 bg-gradient-to-tr from-sky-400 to-sky-600 rounded-full shadow-md text-white no-underline hover:from-sky-600 hover:to-sky-800;
 }
