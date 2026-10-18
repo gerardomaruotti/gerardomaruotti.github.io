@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://rmnrofmmnxkttguajppp.supabase.co; base-uri 'none'; form-action 'self'">
+  <title>Connect Northstar</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="assets/app.js"></script>
+</head>
+<body>
+  <main>
+    <a class="home" href="/">Gerardo Maruotti</a>
+    <p class="eyebrow">NORTHSTAR WEALTH</p>
+    <h1>Connect your financial review.</h1>
+    <p class="intro">Choose what ChatGPT can read. You stay in control of access.</p>
+    <p id="status" role="status" aria-live="polite">Opening Northstar…</p>
+    <section id="login" hidden aria-labelledby="login-title">
+      <h2 id="login-title">Sign in to Northstar</h2>
+      <form id="login-form">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required maxlength="254">
+        <label for="password">Password <span class="secondary">(or request a sign-in link)</span></label>
+        <input id="password" type="password" autocomplete="current-password">
+        <button type="submit">Sign in</button>
+        <button id="magic-link" type="button" class="secondary-button">Send a sign-in link</button>
+      </form>
+      <button id="apple" class="secondary-button" type="button">Continue with Apple</button>
+      <p class="secondary">Use your existing Northstar account. This private connection is available only to its enrolled owner.</p>
+    </section>
+    <section id="consent" hidden aria-labelledby="consent-title">
+      <h2 id="consent-title">Approve read-only access</h2>
+      <p id="client-description"></p>
+      <form id="consent-form">
+        <fieldset><legend>Accounts to include</legend><div id="accounts"></div></fieldset>
+        <label for="history">History to share</label>
+        <select id="history"><option value="30">Last 30 days</option><option value="90" selected>Last 90 days</option><option value="365">Last 365 days</option></select>
+        <label for="time-zone">Reporting time zone</label>
+        <input id="time-zone" type="text" required maxlength="80" spellcheck="false" aria-describedby="time-zone-help">
+        <p id="time-zone-help" class="secondary">Used for date boundaries, for example Europe/Rome.</p>
+        <div class="notice">
+          <strong>Three reporting tools</strong>
+          <p>Approved account context, spending and budgets, and saved recurring schedules. Amounts stay separated by currency.</p>
+          <p>Budget limits cover all your accounts; reported spending covers only the accounts you select.</p>
+          <p>No transaction details, notes, receipts, investments or other people’s information. Shared and split expenses, refunds and transfers are excluded from spending.</p>
+          <p>Access expires after 90 days. Revoking stops future requests; it cannot remove information already returned to a chat.</p>
+        </div>
+        <button id="approve" type="submit" disabled>Allow read-only review</button>
+        <button id="deny" class="secondary-button" type="button">Deny access</button>
+      </form>
+    </section>
+    <section id="connections" hidden aria-labelledby="connections-title">
+      <h2 id="connections-title">Connected reviews</h2>
+      <div id="connection-list"></div>
+      <p class="secondary">Start a connection from your Northstar plugin in ChatGPT. Return here to revoke it.</p>
+    </section>
+    <button id="sign-out" type="button" class="text-button" hidden>Sign out of this page</button>
+    <footer>Leaving or reloading this page signs you out here. This page has no analytics.</footer>
+  </main>
+</body>
+</html>
