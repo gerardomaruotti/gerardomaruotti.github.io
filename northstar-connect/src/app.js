@@ -4,24 +4,39 @@ import { configuration } from './configuration.js';
 // Keep login tokens off this shared website origin's persistent storage. Only
 // the PKCE verifier survives the sign-in redirect, in this tab's sessionStorage.
 const memory = new Map();
+let retired = false;
 const codeVerifierKey = 'northstar-consent-session-code-verifier';
 const storage = {
   getItem: (key) => key === codeVerifierKey ? sessionStorage.getItem(key) : memory.get(key) ?? null,
-  setItem: (key, value) => { if (key === codeVerifierKey) sessionStorage.setItem(key, value); else memory.set(key, value); },
+  setItem: (key, value) => { if (key === codeVerifierKey) sessionStorage.setItem(key, value); else if (!retired) memory.set(key, value); },
   removeItem: (key) => { if (key === codeVerifierKey) sessionStorage.removeItem(key); else memory.delete(key); },
 };
 const client = createClient(configuration.supabaseUrl, configuration.publishableKey, {
   auth: { storage, storageKey: 'northstar-consent-session', flowType: 'pkce', persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
 });
 const element = (id) => document.getElementById(id);
+// Browsers may preserve this document's heap and DOM in the back/forward cache.
+// Retire it before caching; a restored document must start a fresh sign-in.
+addEventListener('pagehide', () => {
+  retired = true;
+  memory.clear();
+  for (const id of ['login', 'consent', 'connections', 'sign-out']) element(id).hidden = true;
+  element('accounts').replaceChildren();
+  element('connection-list').replaceChildren();
+  element('client-description').textContent = '';
+  element('password').value = '';
+  element('approve').disabled = true;
+});
+addEventListener('pageshow', (event) => { if (event.persisted) location.reload(); });
 const pendingKey = 'northstar-consent-authorization';
 const queryId = new URL(location.href).searchParams.get('authorization_id');
 if (queryId && /^[A-Za-z0-9_-]{16,256}$/.test(queryId)) sessionStorage.setItem(pendingKey, queryId);
 let authorizationId = sessionStorage.getItem(pendingKey);
 let oauthClientId;
 let busy = false;
-function status(message, error = false) { element('status').textContent = message; element('status').classList.toggle('error', error); }
+function status(message, error = false) { if (!retired) { element('status').textContent = message; element('status').classList.toggle('error', error); } }
 function setBusy(value) {
+  if (retired) return;
   busy = value;
   document.querySelectorAll('button').forEach((button) => { button.disabled = value; });
   if (!value) element('approve').disabled = !document.querySelector('#accounts input:checked');
@@ -43,6 +58,7 @@ async function authorizationRequest(id, action) {
   return response.json();
 }
 function redirectFromAuth(data) {
+  if (retired) return;
   const target = new URL(data.redirect_url);
   if (target.protocol !== 'https:' || target.hostname !== 'chatgpt.com') throw new Error('The approved OAuth return address is unavailable. Return to ChatGPT and reconnect.');
   sessionStorage.removeItem(pendingKey);
@@ -71,6 +87,7 @@ function showConnections(connections) {
 }
 async function loadAccount() {
   const { data: { session } } = await client.auth.getSession();
+  if (retired) return;
   for (const id of ['login', 'consent', 'connections', 'sign-out']) element(id).hidden = true;
   if (!session) { element('login').hidden = false; status('Sign in with your existing Northstar account.'); return; }
   element('sign-out').hidden = false;
@@ -81,6 +98,7 @@ async function loadAccount() {
     oauthClientId = details.client.id;
   }
   const context = await rpc('mcp_consent_context', { p_client_id: oauthClientId ?? null });
+  if (retired) return;
   if (!authorizationId) {
     showConnections(context.connections); element('connections').hidden = false;
     status('Manage your Northstar connections.'); return;
@@ -99,7 +117,7 @@ async function loadAccount() {
   status(context.accounts.length ? 'Choose the accounts to include.' : 'No eligible accounts. Add an account in Northstar first.');
 }
 async function run(operation) {
-  if (busy) return;
+  if (busy || retired) return;
   setBusy(true);
   try { await operation(); }
   catch (error) { status(error.message || 'Unable to connect. Please try again.', true); }
