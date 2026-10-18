@@ -1,6 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
 import { configuration } from './configuration.js';
 
+// GitHub Pages cannot set frame-ancestors response headers. Keep authentication
+// and consent unavailable in embedded documents to prevent clickjacking.
+if (window.top !== window.self) {
+  document.getElementById('status').textContent = 'Open this page directly in its own tab to manage Northstar access.';
+  throw new Error('Northstar consent requires a top-level page');
+}
+
 // Keep login tokens off this shared website origin's persistent storage. Only
 // the PKCE verifier survives the sign-in redirect, in this tab's sessionStorage.
 const memory = new Map();
