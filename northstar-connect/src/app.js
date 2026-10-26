@@ -117,7 +117,7 @@ async function loadAccount() {
     showConnections(context.connections); element('connections').hidden = false;
     status('Manage your Northstar connections.'); return;
   }
-  element('client-description').textContent = `${details.client.name || 'Your assistant'} requests read-only Northstar summaries.`;
+  element('client-description').textContent = `${details.client.name || 'Your assistant'} requests read-only Northstar balances, spending and income data.`;
   const accounts = element('accounts'); accounts.replaceChildren();
   for (const account of context.accounts) {
     const label = document.createElement('label'); label.className = 'account';
