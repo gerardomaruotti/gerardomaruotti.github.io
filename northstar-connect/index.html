@@ -34,9 +34,13 @@
       <h2 id="consent-title">Approve read-only access</h2>
       <p id="client-description"></p>
       <form id="consent-form">
-        <fieldset><legend>Accounts to include</legend><div id="accounts"></div></fieldset>
+        <fieldset>
+          <legend>Accounts to include</legend>
+          <button id="select-all-accounts" type="button" class="text-button" aria-controls="accounts" disabled>Select all</button>
+          <div id="accounts"></div>
+        </fieldset>
         <label for="history">History to share</label>
-        <select id="history"><option value="30">Last 30 days</option><option value="90" selected>Last 90 days</option><option value="365">Last 365 days</option></select>
+        <select id="history"><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="365" selected>Last year (365 days)</option></select>
         <label for="time-zone">Reporting time zone</label>
         <input id="time-zone" type="text" required maxlength="80" spellcheck="false" aria-describedby="time-zone-help">
         <p id="time-zone-help" class="secondary">Used for date boundaries, for example Europe/Rome.</p>

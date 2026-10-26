@@ -43,11 +43,18 @@ let authorizationId = sessionStorage.getItem(pendingKey);
 let oauthClientId;
 let busy = false;
 function status(message, error = false) { if (!retired) { element('status').textContent = message; element('status').classList.toggle('error', error); } }
+function updateAccountSelection() {
+  const accounts = [...element('accounts').querySelectorAll('input[type="checkbox"]')];
+  const selectedCount = accounts.filter((input) => input.checked).length;
+  element('select-all-accounts').textContent = accounts.length && selectedCount === accounts.length ? 'Deselect all' : 'Select all';
+  element('select-all-accounts').disabled = busy || !accounts.length;
+  element('approve').disabled = busy || !selectedCount;
+}
 function setBusy(value) {
   if (retired) return;
   busy = value;
   document.querySelectorAll('button').forEach((button) => { button.disabled = value; });
-  if (!value) element('approve').disabled = !document.querySelector('#accounts input:checked');
+  updateAccountSelection();
 }
 async function rpc(name, parameters = {}) {
   const { data, error } = await client.rpc(name, parameters);
@@ -115,7 +122,7 @@ async function loadAccount() {
   for (const account of context.accounts) {
     const label = document.createElement('label'); label.className = 'account';
     const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.value = account.id;
-    checkbox.addEventListener('change', () => { if (!busy) element('approve').disabled = !accounts.querySelector('input:checked'); });
+    checkbox.addEventListener('change', updateAccountSelection);
     const text = document.createElement('span'); text.textContent = `${account.name} · ${account.currency}`;
     label.append(checkbox, text); accounts.append(label);
   }
@@ -150,6 +157,13 @@ element('apple').addEventListener('click', () => run(async () => {
   const { error } = await client.auth.signInWithOAuth({ provider: 'apple', options: { redirectTo: `${location.origin}/northstar-connect/` } });
   if (error) throw new Error('Apple sign-in is unavailable here. Use your Northstar email sign-in method.');
 }));
+element('select-all-accounts').addEventListener('click', () => {
+  if (busy || retired) return;
+  const accounts = [...element('accounts').querySelectorAll('input[type="checkbox"]')];
+  const selectAll = accounts.some((input) => !input.checked);
+  accounts.forEach((input) => { input.checked = selectAll; });
+  updateAccountSelection();
+});
 element('consent-form').addEventListener('submit', (event) => {
   event.preventDefault();
   run(async () => {
