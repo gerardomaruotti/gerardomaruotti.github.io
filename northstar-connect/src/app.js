@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { configuration } from './configuration.js';
+import { oauthReturnURL } from './oauth-return.js';
 
 // GitHub Pages cannot set frame-ancestors response headers. Keep authentication
 // and consent unavailable in embedded documents to prevent clickjacking.
@@ -61,13 +62,12 @@ async function authorizationRequest(id, action) {
     headers: { Authorization: `Bearer ${session.access_token}`, 'Content-Type': 'application/json' },
     ...(action ? { body: JSON.stringify({ action }) } : {}),
   });
-  if (!response.ok) throw new Error('This request expired or is unavailable. Start again from ChatGPT.');
+  if (!response.ok) throw new Error('This request expired or is unavailable. Start again from the app you are connecting.');
   return response.json();
 }
 function redirectFromAuth(data) {
   if (retired) return;
-  const target = new URL(data.redirect_url);
-  if (target.protocol !== 'https:' || target.hostname !== 'chatgpt.com') throw new Error('The approved OAuth return address is unavailable. Return to ChatGPT and reconnect.');
+  const target = oauthReturnURL(data.redirect_url);
   sessionStorage.removeItem(pendingKey);
   location.assign(target.href);
 }
@@ -110,7 +110,7 @@ async function loadAccount() {
     showConnections(context.connections); element('connections').hidden = false;
     status('Manage your Northstar connections.'); return;
   }
-  element('client-description').textContent = `${details.client.name || 'ChatGPT'} requests read-only Northstar summaries.`;
+  element('client-description').textContent = `${details.client.name || 'Your assistant'} requests read-only Northstar summaries.`;
   const accounts = element('accounts'); accounts.replaceChildren();
   for (const account of context.accounts) {
     const label = document.createElement('label'); label.className = 'account';
