@@ -42,7 +42,7 @@ if (queryId && /^[A-Za-z0-9_-]{16,256}$/.test(queryId)) sessionStorage.setItem(p
 let authorizationId = sessionStorage.getItem(pendingKey);
 let oauthClientId;
 let busy = false;
-function status(message, error = false) { if (!retired) { element('status').textContent = message; element('status').classList.toggle('error', error); } }
+function status(message, error = false, announcementOnly = false) { if (!retired) { element('status').textContent = message; element('status').classList.toggle('error', error); element('status').classList.toggle('announcement-only', announcementOnly); } }
 function updateAccountSelection() {
   const accounts = [...element('accounts').querySelectorAll('input[type="checkbox"]')];
   const selectedCount = accounts.filter((input) => input.checked).length;
@@ -103,7 +103,7 @@ async function loadAccount() {
   const { data: { session } } = await client.auth.getSession();
   if (retired) return;
   for (const id of ['login', 'consent', 'connections', 'sign-out']) element(id).hidden = true;
-  if (!session) { element('login').hidden = false; status('Sign in with your existing Northstar account.'); return; }
+  if (!session) { element('login').hidden = false; status('Sign in with your existing Northstar account.', false, true); return; }
   element('sign-out').hidden = false;
   let details;
   if (authorizationId) {
@@ -115,7 +115,7 @@ async function loadAccount() {
   if (retired) return;
   if (!authorizationId) {
     showConnections(context.connections); element('connections').hidden = false;
-    status('Manage your Northstar connections.'); return;
+    status('Manage your Northstar connections.', false, true); return;
   }
   element('client-description').textContent = `${details.client.name || 'Your assistant'} requests read-only Northstar balances, spending and income data.`;
   const accounts = element('accounts'); accounts.replaceChildren();
@@ -128,7 +128,7 @@ async function loadAccount() {
   }
   element('time-zone').value = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
   element('consent').hidden = false;
-  status(context.accounts.length ? 'Choose the accounts to include.' : 'No eligible accounts. Add an account in Northstar first.');
+  status(context.accounts.length ? 'Choose the accounts to include.' : 'No eligible accounts. Add an account in Northstar first.', false, context.accounts.length > 0);
 }
 async function run(operation) {
   if (busy || retired) return;

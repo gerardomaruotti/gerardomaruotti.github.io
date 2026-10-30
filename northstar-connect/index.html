@@ -14,60 +14,81 @@
 </head>
 <body>
   <main>
-    <a class="home" href="/">Gerardo Maruotti</a>
-    <div class="brand">
-      <img src="assets/northstar.png" width="56" height="56" alt="">
-      <p class="eyebrow">NORTHSTAR</p>
-    </div>
-    <h1>Connect your financial review.</h1>
-    <p class="intro">Choose what your assistant can read. You stay in control of access.</p>
+    <header class="page-header">
+      <img class="app-icon" src="assets/northstar.png" width="64" height="64" alt="">
+      <h1>Connect to Northstar</h1>
+      <p class="intro">Read-only access for your assistant.</p>
+    </header>
     <p id="status" role="status" aria-live="polite">Opening Northstar…</p>
     <section id="login" hidden aria-labelledby="login-title">
-      <h2 id="login-title">Sign in to Northstar</h2>
+      <h2 id="login-title" class="visually-hidden">Sign in to Northstar</h2>
+      <button id="apple" class="apple-button" type="button">Continue with Apple</button>
+      <div class="divider"><span>or sign in with email</span></div>
       <form id="login-form">
-        <label for="email">Email</label>
-        <input id="email" type="email" autocomplete="username" required maxlength="254">
-        <label for="password">Password <span class="secondary">(or request a sign-in link)</span></label>
-        <input id="password" type="password" autocomplete="current-password">
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" inputmode="email" autocomplete="username" autocapitalize="none" spellcheck="false" required maxlength="254" placeholder="name@example.com">
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" autocomplete="current-password">
+        </div>
         <button type="submit">Sign in</button>
-        <button id="magic-link" type="button" class="secondary-button">Send a sign-in link</button>
+        <button id="magic-link" type="button" class="text-button">Email me a sign-in link</button>
       </form>
-      <button id="apple" class="secondary-button" type="button">Continue with Apple</button>
-      <p class="secondary">Use your existing Northstar account. This private connection is available only to its enrolled owner.</p>
+      <p class="account-note">Use your existing Northstar account.<br>This private connection is for its enrolled owner.</p>
     </section>
     <section id="consent" hidden aria-labelledby="consent-title">
-      <h2 id="consent-title">Approve read-only access</h2>
-      <p id="client-description"></p>
+      <h2 id="consent-title">Choose what to share</h2>
+      <p id="client-description" class="section-intro"></p>
       <form id="consent-form">
-        <fieldset>
-          <legend>Accounts to include</legend>
-          <button id="select-all-accounts" type="button" class="text-button" aria-controls="accounts" disabled>Select all</button>
+        <fieldset class="account-group" aria-labelledby="accounts-title">
+          <legend>
+            <span id="accounts-title">Accounts</span>
+            <button id="select-all-accounts" type="button" class="text-button" aria-controls="accounts" disabled>Select all</button>
+          </legend>
           <div id="accounts"></div>
         </fieldset>
-        <label for="history">History to share</label>
-        <select id="history"><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="365" selected>Last year (365 days)</option></select>
-        <label for="time-zone">Reporting time zone</label>
-        <input id="time-zone" type="text" required maxlength="80" spellcheck="false" aria-describedby="time-zone-help">
-        <p id="time-zone-help" class="secondary">Used for date boundaries, for example Europe/Rome.</p>
-        <div class="notice">
-          <strong>Five read-only tools</strong>
-          <p>Approved account balances, spending and budgets, income summaries and income transactions, and saved recurring schedules. Amounts stay separated by currency.</p>
-          <p>Budget limits cover all your accounts; reported spending covers only the accounts you select.</p>
-          <p>Income rows show date, amount, currency, account and category. Expense transaction details, notes, receipts, counterparty details and investment holdings are not shared. Income includes recorded income inflows; transfers and refunds are excluded.</p>
-          <p>Shared expenses use your saved personal share, matching Insights. Split transactions use their stored personal amount. Refunds and transfers are excluded from spending.</p>
-          <p>Access expires after 90 days. Revoking stops future requests; it cannot remove information already returned to a chat.</p>
+        <div class="field">
+          <label for="history">History</label>
+          <div class="select-control">
+            <select id="history"><option value="30">Last 30 days</option><option value="90">Last 90 days</option><option value="365" selected>Last year (365 days)</option></select>
+          </div>
         </div>
+        <div class="field">
+          <label for="time-zone">Time zone</label>
+          <input id="time-zone" type="text" required maxlength="80" autocapitalize="none" spellcheck="false" aria-describedby="time-zone-help">
+          <p id="time-zone-help" class="field-help">Used for reporting dates, for example Europe/Rome.</p>
+        </div>
+        <div class="access-summary">
+          <p class="read-only-label">Read-only access</p>
+          <p>Your assistant can review your data. It can’t change it or move money.</p>
+          <details>
+            <summary>Review access details</summary>
+            <div class="access-details">
+              <p>Approved account balances, spending and budgets, income summaries and income transactions, and saved recurring schedules. Amounts stay separated by currency.</p>
+              <p>Budget limits cover all your accounts; reported spending covers only the accounts you select.</p>
+              <p>Income rows include date, amount, currency, account, category and identifier. Expense transaction details, notes, receipts, counterparty details and investment holdings are not shared. Income includes recorded income inflows; transfers and refunds are excluded.</p>
+              <p>Shared expenses use your saved personal share, matching Insights. Split transactions use their stored personal amount. Refunds and transfers are excluded from spending.</p>
+              <p>Revoking stops future requests; it cannot remove information already returned to a chat.</p>
+            </div>
+          </details>
+        </div>
+        <p class="expiry-note">Access expires after 90 days. You can revoke it anytime.</p>
         <button id="approve" type="submit" disabled>Allow read-only review</button>
-        <button id="deny" class="secondary-button" type="button">Deny access</button>
+        <button id="deny" class="text-button" type="button">Deny access</button>
       </form>
     </section>
     <section id="connections" hidden aria-labelledby="connections-title">
       <h2 id="connections-title">Connected reviews</h2>
       <div id="connection-list"></div>
-      <p class="secondary">Start a connection from your assistant’s Northstar connector. Return here to revoke it.</p>
+      <p class="section-intro">Start a connection from your assistant’s Northstar connector. Return here to revoke it.</p>
     </section>
-    <button id="sign-out" type="button" class="text-button" hidden>Sign out of this page</button>
-    <footer>Leaving or reloading this page signs you out here. This page has no analytics.</footer>
+    <button id="sign-out" type="button" class="text-button" hidden>Sign out</button>
+    <footer>
+      <p>You’re signed out when you leave this page.<br>No analytics. No saved sign-in.</p>
+      <a class="home" href="/">Northstar by Gerardo Maruotti</a>
+    </footer>
   </main>
 </body>
 </html>
