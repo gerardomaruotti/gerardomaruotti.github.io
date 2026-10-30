@@ -103,7 +103,7 @@ async function loadAccount() {
   const { data: { session } } = await client.auth.getSession();
   if (retired) return;
   for (const id of ['login', 'consent', 'connections', 'sign-out']) element(id).hidden = true;
-  if (!session) { element('login').hidden = false; status('Sign in with your existing Northstar account.'); return; }
+  if (!session) { element('login').hidden = false; status(''); return; }
   element('sign-out').hidden = false;
   let details;
   if (authorizationId) {
@@ -115,7 +115,7 @@ async function loadAccount() {
   if (retired) return;
   if (!authorizationId) {
     showConnections(context.connections); element('connections').hidden = false;
-    status('Manage your Northstar connections.'); return;
+    status(''); return;
   }
   element('client-description').textContent = `${details.client.name || 'Your assistant'} requests read-only Northstar balances, spending and income data.`;
   const accounts = element('accounts'); accounts.replaceChildren();
@@ -128,7 +128,7 @@ async function loadAccount() {
   }
   element('time-zone').value = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
   element('consent').hidden = false;
-  status(context.accounts.length ? 'Choose the accounts to include.' : 'No eligible accounts. Add an account in Northstar first.');
+  status(context.accounts.length ? '' : 'No eligible accounts. Add an account in Northstar first.');
 }
 async function run(operation) {
   if (busy || retired) return;
